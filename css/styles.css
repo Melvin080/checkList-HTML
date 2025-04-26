@@ -1,0 +1,128 @@
+:root{
+    --background: #000000;
+    --primary-color: #1e1e20;
+    --secundary-color: #8b8b8b;
+    --accent-color: #00ffff;
+    --text-color: #ffffff;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    color: var(--text-color);
+}
+body{
+    min-height: 100vh;
+    padding: 5px;
+    background-color: var(--background);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h1{
+    margin-top: 100px;
+    margin-bottom: 10px;
+    font-size: 3rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--accent-color);
+}
+.wrapper{
+    width: 700px;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+#tareasInput{
+    box-sizing: border-box;
+    padding: 12px 20px;
+    width: 100%;
+    background: none;
+    border: 2px solid var(--secundary-color);
+    border-radius: 10px;
+    font: inherit;
+    color: var(--text-color);
+    caret-color: var(--accent-color);
+}
+#tareasInput:focus{
+    outline: none;
+}
+form{
+    position: relative;
+}
+#botonAñadir{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--accent-color);
+    height: 100%;
+    padding: 0 20px;
+    border: none;
+    border-radius: 10px;
+    font: inherit;
+    font-weight: 800;
+    color: var(--background);
+    cursor: pointer;
+}
+.tarea{
+    margin-bottom: 10px;
+    padding: 0 20px;
+    background-color: var(--primary-color);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+}
+.tarea .tareaTexto{
+    padding: 20px;
+    padding-right: 0;
+    flex-grow: 1;
+    transition: 150ms ease;
+}
+.tareaBorrar{
+    padding: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tareaBorrar:hover svg{
+    fill: #ff0000;
+}
+.tareaBorrar svg{
+    transition: 150ms ease;
+}
+input[type="checkbox"]:checked ~ .tareaTexto{
+    text-decoration: line-through;
+    color: var(--secundary-color);
+}
+input[type="checkbox"]:checked{
+    accent-color: var(--accent-color);
+}
+input[type="checkbox"]{
+    transition: 150ms ease;
+    cursor: pointer;
+}
+
+@media(max-width: 500px){
+    html{
+        font-size: 12px;
+    }
+    #botonAñadir{
+        position: unset;
+        width: 100%;
+        margin-top: 10px;
+        padding: 12px;
+        height: auto;
+    }
+    h1{
+        margin-top: 50px;
+        font-size: 10vw;
+    }
+}
