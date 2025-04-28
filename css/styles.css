@@ -1,13 +1,48 @@
 :root{
+    --background: #fdf9f9;
+    --primary-color: #b6b6b6;
+    --primary-accent: #555555;
+    --secundary-color: #3d3d3d;
+    --accent-color: #884188;
+    --text-color: #000000;
+}
+.modo-oscuro{
     --background: #000000;
-    --primary-color: #1e1e20;
-    --secundary-color: #8b8b8b;
-    --accent-color: #00ffff;
+    --primary-color: #8b8b8b;
+    --primary-accent: #555555;
+    --secundary-color: #3d3d3d;
+    --accent-color: #884188;
     --text-color: #ffffff;
 }
 *{
     margin: 0;
     padding: 0;
+}
+#botonTema{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    border: none;
+}
+#botonTema svg{
+    fill: var(--primary-accent);
+}
+#botonTema svg:last-child{
+    display: none;
+}
+.modo-oscuro #botonTema svg:first-child{
+    display: none;
+}
+.modo-oscuro #botonTema svg:last-child{
+    display: block;
 }
 html{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -77,13 +112,13 @@ form{
     display: flex;
     align-items: center;
 }
-.tarea .tareaTexto{
+.tarea .tarea-texto{
     padding: 20px;
     padding-right: 0;
     flex-grow: 1;
     transition: 150ms ease;
 }
-.tareaBorrar{
+.tarea-borrar{
     padding: 5px;
     background: none;
     border: none;
@@ -92,13 +127,13 @@ form{
     justify-content: center;
     align-items: center;
 }
-.tareaBorrar:hover svg{
+.tarea-borrar:hover svg{
     fill: #ff0000;
 }
-.tareaBorrar svg{
+.tarea-borrar svg{
     transition: 150ms ease;
 }
-input[type="checkbox"]:checked ~ .tareaTexto{
+input[type="checkbox"]:checked ~ .tarea-texto{
     text-decoration: line-through;
     color: var(--secundary-color);
 }
