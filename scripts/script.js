@@ -37,16 +37,16 @@ function crearElementoTarea(tarea, tareaIndex){
     tareaLI.innerHTML = `
         <input type="checkbox" id="${tareaId}">
         <label class="checkboxPersonalizado" for="${tareaId}"></label>
-        <label class="tareaTexto" for="${tareaId}">
+        <label class="tarea-texto" for="${tareaId}">
                 ${tareaTexto}
         </label>
-        <button class="tareaBorrar">
+        <button class="tarea-borrar">
             <svg fill="var(--secundary-color)" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f">
                     <path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/>
             </svg>
         </button>
     `
-    const botonBorrar = tareaLI.querySelector(".tareaBorrar");
+    const botonBorrar = tareaLI.querySelector(".tarea-borrar");
     botonBorrar.addEventListener("click", ()=>{
         borrarItemTarea(tareaIndex);
     })
@@ -71,3 +71,21 @@ function obtenerTareas(){
     const tareas = localStorage.getItem("Tareas") || "[]";
     return JSON.parse(tareas);
 }
+
+let modoOscuro = localStorage.getItem('modo-oscuro');
+const botonTema = document.getElementById('botonTema');
+
+botonTema.addEventListener("click", ()=>{
+    modoOscuro = localStorage.getItem('modo-oscuro');
+    modoOscuro !== "activo" ? activarModoOscuro() : desactivarModoOscuro();
+})
+
+const activarModoOscuro = ()=>{
+    document.body.classList.add('modo-oscuro');
+    localStorage.setItem('modo-oscuro', 'activo');
+}
+const desactivarModoOscuro = ()=>{
+    document.body.classList.remove('modo-oscuro');
+    localStorage.setItem('modo-oscuro', null);
+}
+if(modoOscuro === "activo") activarModoOscuro();
